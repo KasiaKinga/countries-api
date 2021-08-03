@@ -10,16 +10,16 @@ const SearchBar = (props) => {
   };
   return (
     // <div className="ui segment">
-      <form className="ui form" onSubmit={onFormSubmit}>
-        <div className="field">
-          <label>Search video</label>
-          <input
-            type="text"
-            value={keyword}
-            onChange={(e) => setKeyword(e.target.value)}
-          />
-        </div>
-      </form>
+    <form className="ui form" onSubmit={onFormSubmit}>
+      <div className="field">
+        <label>Search video</label>
+        <input
+          type="text"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+        />
+      </div>
+    </form>
     // </div>
   );
 };
