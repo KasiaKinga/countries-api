@@ -3,21 +3,23 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import App from "./App";
 import CountryDetails from "./CountryDetails";
 import "semantic-ui-css/semantic.min.css";
+import { Segment, Container, Header } from "semantic-ui-react";
 
 const Routes = () => {
   return (
     <div>
-      <div className="ui segment">
-        <div className="ui container">
-          <h3>Where is the world?</h3>
-        </div>
-      </div>
-      <main>
+      <Segment>
+        <Container>
+          <Header as="h3">Where is the world?</Header>
+        </Container>
+      </Segment>
+
+      <Container>
         <Router>
           <Route exact path="/" component={App} />
           <Route path="/:countryId" component={CountryDetails} />
         </Router>
-      </main>
+      </Container>
     </div>
   );
 };

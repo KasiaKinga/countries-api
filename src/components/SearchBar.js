@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Form } from "semantic-ui-react";
 
 const SearchBar = (props) => {
   const [keyword, setKeyword] = useState("");
@@ -9,18 +10,16 @@ const SearchBar = (props) => {
     setKeyword("");
   };
   return (
-    // <div className="ui segment">
-    <form className="ui form" onSubmit={onFormSubmit}>
-      <div className="field">
-        <label>Search video</label>
+    <Form onSubmit={onFormSubmit}>
+      <Form.Field>
+        <label>Search country</label>
         <input
           type="text"
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
         />
-      </div>
-    </form>
-    // </div>
+      </Form.Field>
+    </Form>
   );
 };
 
