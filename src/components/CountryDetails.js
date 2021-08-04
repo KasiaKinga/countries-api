@@ -1,41 +1,28 @@
 import React from "react";
 import DetailList from "./DetailList";
-import "./CountryDetails.css";
+import { Grid, Container, Image, Button } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 const CountryDetails = (props) => {
-  console.log("props", props.location.aboutProps);
   const { country } = props.location.aboutProps;
+
   return (
-    // <div className="ui container">
-    //   <div className="ui grid" style={{ background: "gray" }}>
-    //     <div className="ui row">
-    //       <div className="eleven wide column">
-    //         <img src={country.flag} style={{ maxWidth: "460px" }} />
-    //       </div>
+    <Container>
+      <Button as={Link} to="/" style={{ margin: "5% 0 5% 0" }}>
+        Back
+      </Button>
+      <Grid stackable>
+        <Grid.Row>
+          <Grid.Column width={6}>
+            <Image src={country.flag} size="large" />
+          </Grid.Column>
 
-    //       <div className="five wide column">
-    //         <DetailList country={country} />
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-    <div className="details ui container">
-      <div className="ui items">
-        <div className="item">
-          <div className="ui image large">
-            <img src={country.flag} />
-          </div>
-
-          <div className="content">
-            <a className="header">{country.name}</a>
-            <div className="description">
-              <DetailList country={country} />
-            </div>
-            <div claclassNamess="extra">Additional Details</div>
-          </div>
-        </div>
-      </div>
-    </div>
+          <Grid.Column width={10}>
+            <DetailList country={country} />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </Container>
   );
 };
 

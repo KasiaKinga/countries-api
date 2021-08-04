@@ -1,22 +1,44 @@
 import React from "react";
+import { Grid, List } from "semantic-ui-react";
 
 const DetailList = (props) => {
   const { country } = props;
   return (
-    // <div>
-    <div className="content">
-      {/* <h2 className="header">{country.name}</h2> */}
-      <div className="item">Native Name: {country.nativeName}</div>
-      <div className="item">Population: {country.population}</div>
-      <div className="item">Region: {country.region}</div>
-      <div className="item">Sub Region: {country.subregion}</div>
+    <List>
+      <List.Content style={{ lineHeight: "200%" }}>
+        <List.Header as="h2">{country.name}</List.Header>
+        <Grid stackable={true}>
+          <Grid.Row>
+            <Grid.Column width={7}>
+              <List.Description>
+                <b>Native Name:</b> {country.nativeName}
+              </List.Description>
+              <List.Description>
+                <b>Population:</b> {country.population}
+              </List.Description>
+              <List.Description>
+                <b>Region:</b> {country.region}
+              </List.Description>
+              <List.Description>
+                <b>Sub Region:</b> {country.subregion}
+              </List.Description>
+            </Grid.Column>
 
-      <div className="item">Top Level Domain: {country.topLevelDomain[0]}</div>
-
-      <div className="item">Currencies: {country.currencies[0].code}</div>
-
-      <div className="item">Languages: {country.languages[0].name}</div>
-    </div>
+            <Grid.Column width={5}>
+              <List.Description>
+                <b>Top Level Domain:</b> {country.topLevelDomain}
+              </List.Description>
+              <List.Description>
+                <b>Currencies:</b> {country.currencies.code}
+              </List.Description>
+              <List.Description>
+                <b>Languages:</b> {country.languages.name}
+              </List.Description>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </List.Content>
+    </List>
   );
 };
 
