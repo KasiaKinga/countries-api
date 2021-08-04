@@ -11,12 +11,10 @@ const App = () => {
   const [countries, setCountries] = useState([]);
   const [term, setTerm] = useState("all");
 
-  // only first fetching is for all countries
   useEffect(() => {
     callCountries(term);
   }, [term]);
 
-  // then we callCountries by passing the key from SearchBar and Dropdown
   const callCountries = async (term) => {
     const response = await countriesApi.get(`/${term}`);
     setCountries(response.data);

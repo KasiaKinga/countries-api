@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Grid, List } from "semantic-ui-react";
+import { formatNumber } from "./util.js";
 
 const DetailList = (props) => {
   const { country } = props;
-  console.log("country", country);
+
   const currency = country.currencies.map((currency) => {
     return currency.name;
   });
 
-  const language = country.languages.map((language) => {
-    return language.name;
-  }).join(", ")
+  const language = country.languages
+    .map((language) => {
+      return language.name;
+    })
+    .join(", ");
 
-  console.log("language", language);
   return (
     <List>
       <List.Content style={{ lineHeight: "200%" }}>
@@ -24,7 +26,7 @@ const DetailList = (props) => {
                 <b>Native Name:</b> {country.nativeName}
               </List.Description>
               <List.Description>
-                <b>Population:</b> {country.population}
+                <b>Population:</b> {formatNumber(country.population)}
               </List.Description>
               <List.Description>
                 <b>Region:</b> {country.region}
@@ -34,7 +36,7 @@ const DetailList = (props) => {
               </List.Description>
             </Grid.Column>
 
-            <Grid.Column width={5}>
+            <Grid.Column width={6}>
               <List.Description>
                 <b>Top Level Domain:</b> {country.topLevelDomain}
               </List.Description>
