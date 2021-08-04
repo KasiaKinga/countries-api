@@ -14,7 +14,11 @@ const CountryDetails = (props) => {
       <Grid stackable>
         <Grid.Row>
           <Grid.Column width={6}>
-            <Image src={country.flag} size="large" />
+            <Image
+              src={country.flag}
+              size="large"
+              style={{ border: "0.5px solid #e0e0e0" }}
+            />
           </Grid.Column>
 
           <Grid.Column width={10}>
