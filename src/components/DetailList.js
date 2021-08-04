@@ -3,6 +3,16 @@ import { Grid, List } from "semantic-ui-react";
 
 const DetailList = (props) => {
   const { country } = props;
+  console.log("country", country);
+  const currency = country.currencies.map((currency) => {
+    return currency.name;
+  });
+
+  const language = country.languages.map((language) => {
+    return language.name;
+  }).join(", ")
+
+  console.log("language", language);
   return (
     <List>
       <List.Content style={{ lineHeight: "200%" }}>
@@ -29,10 +39,10 @@ const DetailList = (props) => {
                 <b>Top Level Domain:</b> {country.topLevelDomain}
               </List.Description>
               <List.Description>
-                <b>Currencies:</b> {country.currencies.code}
+                <b>Currencies:</b> {currency}
               </List.Description>
               <List.Description>
-                <b>Languages:</b> {country.languages.name}
+                <b>Languages:</b> {language}
               </List.Description>
             </Grid.Column>
           </Grid.Row>
