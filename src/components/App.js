@@ -9,6 +9,7 @@ const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
 const App = () => {
   const [countries, setCountries] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]);
   const [term, setTerm] = useState("all");
 
   useEffect(() => {
@@ -18,6 +19,14 @@ const App = () => {
   const callCountries = async (term) => {
     const response = await countriesApi.get(`/${term}`);
     setCountries(response.data);
+    setFilteredCountries(response.data);
+  };
+
+  const filterCountries = (term) => {
+    const filtered = countries.filter((country) => {
+      return country.region === term;
+    });
+    setFilteredCountries(filtered);
   };
 
   return (
@@ -28,10 +37,13 @@ const App = () => {
         </Grid.Column>
 
         <Grid.Column floated="right" width={5}>
-          <DropdownElement regions={regions} setTerm={setTerm} />
+          <DropdownElement
+            regions={regions}
+            filterCountries={filterCountries}
+          />
         </Grid.Column>
       </Grid>
-      <ListOfCountries countries={countries} />
+      <ListOfCountries countries={filteredCountries} />
     </Container>
   );
 };
