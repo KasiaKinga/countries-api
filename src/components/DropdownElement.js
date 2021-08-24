@@ -2,7 +2,7 @@ import React from "react";
 import { Form } from "semantic-ui-react";
 
 const DropdownElement = (props) => {
-  const { regions, setTerm } = props;
+  const { regions, filterCountries } = props;
 
   const allRegions = regions.map((region) => {
     return { key: region, value: region, text: region };
@@ -13,7 +13,7 @@ const DropdownElement = (props) => {
       fluid
       label="Filter by region"
       onChange={(e, { value }) => {
-        setTerm(`region/${value}`);
+        filterCountries(value);
       }}
       options={allRegions}
     />
