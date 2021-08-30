@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import App from "./App";
-import CountryDetails from "./CountryDetails";
+import CountryDetailsPage from "./CountryDetailsPage";
 import "semantic-ui-css/semantic.min.css";
 import { Segment, Container, Header } from "semantic-ui-react";
 
@@ -17,7 +17,7 @@ const Routes = () => {
       <Container>
         <Router>
           <Route exact path="/" component={App} />
-          <Route path="/:countryId" component={CountryDetails} />
+          <Route path="/:countryId" component={CountryDetailsPage} />
         </Router>
       </Container>
     </div>

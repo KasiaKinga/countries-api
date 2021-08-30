@@ -1,7 +1,7 @@
 import React from "react";
 import { Form } from "semantic-ui-react";
 
-const DropdownElement = (props) => {
+const Dropdown = (props) => {
   const { regions, filterCountries } = props;
 
   const allRegions = regions.map((region) => {
@@ -20,4 +20,4 @@ const DropdownElement = (props) => {
   );
 };
 
-export default DropdownElement;
+export default Dropdown;

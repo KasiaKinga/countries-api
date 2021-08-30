@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Grid, List } from "semantic-ui-react";
-import { formatNumber } from "./util.js";
+import { formatNumber } from "../utils/util.js";
 
-const DetailList = (props) => {
+const CountryDetailList = (props) => {
   const { country } = props;
 
   const currency = country.currencies.map((currency) => {
@@ -54,4 +54,4 @@ const DetailList = (props) => {
   );
 };
 
-export default DetailList;
+export default CountryDetailList;

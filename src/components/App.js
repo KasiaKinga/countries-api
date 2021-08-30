@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import countriesApi from "../api/countriesApi";
-import ListOfCountries from "./ListOfCountries";
+import CountriesList from "./CountriesList";
 import SearchBar from "./SearchBar";
-import DropdownElement from "./DropdownElement";
+import Dropdown from "./Dropdown";
 import { Grid, Container } from "semantic-ui-react";
 
 const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
@@ -13,18 +13,18 @@ const App = () => {
   const [term, setTerm] = useState("all");
 
   useEffect(() => {
-    callCountries(term);
+    getCountries(term);
   }, [term]);
 
-  const callCountries = async (term) => {
-    const response = await countriesApi.get(`/${term}`);
+  const getCountries = async (searchTerm) => {
+    const response = await countriesApi.get(`/${searchTerm}`);
     setCountries(response.data);
     setFilteredCountries(response.data);
   };
 
-  const filterCountries = (term) => {
+  const filterCountries = (region) => {
     const filtered = countries.filter((country) => {
-      return country.region === term;
+      return country.region === region;
     });
     setFilteredCountries(filtered);
   };
@@ -37,13 +37,10 @@ const App = () => {
         </Grid.Column>
 
         <Grid.Column floated="right" width={5}>
-          <DropdownElement
-            regions={regions}
-            filterCountries={filterCountries}
-          />
+          <Dropdown regions={regions} filterCountries={filterCountries} />
         </Grid.Column>
       </Grid>
-      <ListOfCountries countries={filteredCountries} />
+      <CountriesList countries={filteredCountries} />
     </Container>
   );
 };
