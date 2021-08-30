@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Image } from "semantic-ui-react";
-import { formatNumber } from "./util.js";
+import { formatNumber } from "../utils/util.js";
 
-const CountryCard = (props) => {
+const CountryItem = (props) => {
   const { name, flag, population, region, capital } = props.country;
 
   return (
@@ -24,4 +24,4 @@ const CountryCard = (props) => {
   );
 };
 
-export default CountryCard;
+export default CountryItem;

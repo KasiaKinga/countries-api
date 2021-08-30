@@ -1,5 +1,5 @@
 import React from "react";
-import DetailList from "./DetailList";
+import CountryDetailList from "./CountryDetailList";
 import { Grid, Container, Image, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
@@ -22,7 +22,7 @@ const CountryDetails = (props) => {
           </Grid.Column>
 
           <Grid.Column width={10}>
-            <DetailList country={country} />
+            <CountryDetailList country={country} />
           </Grid.Column>
         </Grid.Row>
       </Grid>

@@ -1,10 +1,10 @@
 import React from "react";
-import CountryCard from "./CountryCard";
+import CountryItem from "./CountryItem";
 import { Card } from "semantic-ui-react";
 
-const ListOfCountries = ({ countries }) => {
+const CountriesList = ({ countries }) => {
   const listOfCountries = countries.map((country) => {
-    return <CountryCard country={country} key={country.numericCode} />;
+    return <CountryItem country={country} key={country.numericCode} />;
   });
 
   return (
@@ -14,4 +14,4 @@ const ListOfCountries = ({ countries }) => {
   );
 };
 
-export default ListOfCountries;
+export default CountriesList;
