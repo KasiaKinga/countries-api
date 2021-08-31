@@ -3,7 +3,7 @@ import CountryDetailList from "./CountryDetailList";
 import { Grid, Container, Image, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-const CountryDetails = (props) => {
+const CountryDetailsPage = (props) => {
   const { country } = props.location.aboutProps;
 
   return (
@@ -30,4 +30,4 @@ const CountryDetails = (props) => {
   );
 };
 
-export default CountryDetails;
+export default CountryDetailsPage;

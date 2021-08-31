@@ -12,8 +12,9 @@ const SearchBar = (props) => {
   return (
     <Form onSubmit={onFormSubmit}>
       <Form.Field>
-        <label>Search country</label>
+        <label htmlFor="searchBar">Search country</label>
         <input
+          id="searchBar"
           type="text"
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
