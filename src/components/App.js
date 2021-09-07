@@ -3,7 +3,7 @@ import countriesApi from "../api/countriesApi";
 import CountriesList from "./CountriesList";
 import SearchBar from "./SearchBar";
 import Dropdown from "./Dropdown";
-import { Grid, Container, Header } from "semantic-ui-react";
+import { Grid, Container, Header, Loader } from "semantic-ui-react";
 
 const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
@@ -11,7 +11,7 @@ const App = () => {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [countryNotFound, setCountryNotFound] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getCountries("all");
@@ -25,6 +25,7 @@ const App = () => {
     } catch (error) {
       setCountryNotFound(true);
     }
+    setIsLoading(false);
   };
 
   const filterCountries = (region) => {
@@ -64,7 +65,13 @@ const App = () => {
           />
         </Grid.Column>
       </Grid>
-      <CountriesList countries={filteredCountries} />
+
+      {isLoading ? (
+        <Loader active inline="centered" />
+      ) : (
+        <CountriesList countries={filteredCountries} />
+      )}
+      {/* <CountriesList countries={filteredCountries} /> */}
     </Container>
   );
 };
