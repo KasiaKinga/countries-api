@@ -3,23 +3,28 @@ import countriesApi from "../api/countriesApi";
 import CountriesList from "./CountriesList";
 import SearchBar from "./SearchBar";
 import Dropdown from "./Dropdown";
-import { Grid, Container } from "semantic-ui-react";
+import { Grid, Container, Header } from "semantic-ui-react";
 
 const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
 const App = () => {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
-  const [term, setTerm] = useState("all");
+  const [countryNotFound, setCountryNotFound] = useState(false);
+
 
   useEffect(() => {
-    getCountries(term);
-  }, [term]);
+    getCountries("all");
+  }, []);
 
   const getCountries = async (searchTerm) => {
-    const response = await countriesApi.get(`/${searchTerm}`);
-    setCountries(response.data);
-    setFilteredCountries(response.data);
+    try {
+      const response = await countriesApi.get(`/${searchTerm}`);
+      setCountries(response.data);
+      setFilteredCountries(response.data);
+    } catch (error) {
+      setCountryNotFound(true);
+    }
   };
 
   const filterCountries = (region) => {
@@ -29,15 +34,34 @@ const App = () => {
     setFilteredCountries(filtered);
   };
 
+  const getCountry = async (searchTerm) => {
+    try {
+      const response = await countriesApi.get(`/name/${searchTerm}`);
+      setFilteredCountries(response.data);
+      setCountryNotFound(false);
+    } catch (error) {
+      setCountryNotFound(true);
+    }
+  };
+
   return (
     <Container>
       <Grid stackable style={{ marginBottom: "1rem" }}>
         <Grid.Column floated="left" width={5}>
-          <SearchBar setTerm={setTerm} />
+          <SearchBar onSubmit={getCountry} title={"Search country"} />
+          {countryNotFound ? (
+            <Header as="h5" style={{ marginTop: "5px", color: "red" }}>
+              Country not found
+            </Header>
+          ) : null}
         </Grid.Column>
 
         <Grid.Column floated="right" width={5}>
-          <Dropdown regions={regions} filterCountries={filterCountries} />
+          <Dropdown
+            options={regions}
+            onChange={filterCountries}
+            label={"Filter by region"}
+          />
         </Grid.Column>
       </Grid>
       <CountriesList countries={filteredCountries} />

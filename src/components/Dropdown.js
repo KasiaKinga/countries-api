@@ -2,20 +2,18 @@ import React from "react";
 import { Form } from "semantic-ui-react";
 
 const Dropdown = (props) => {
-  const { regions, filterCountries } = props;
-
-  const allRegions = regions.map((region) => {
-    return { key: region, value: region, text: region };
-  });
+  const { options, onChange, label } = props;
 
   return (
     <Form.Select
       fluid
-      label="Filter by region"
+      label={label}
       onChange={(e, { value }) => {
-        filterCountries(value);
+        onChange(value);
       }}
-      options={allRegions}
+      options={options.map((option) => {
+        return { key: option, value: option, text: option };
+      })}
     />
   );
 };
