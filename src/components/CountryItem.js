@@ -9,6 +9,7 @@ const CountryItem = (props) => {
   return (
     <Card
       as={Link}
+      // goes to this url
       to={{ pathname: `/${name}`, aboutProps: { country: props.country } }}
     >
       <Image src={flag} />

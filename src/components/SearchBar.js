@@ -6,14 +6,16 @@ const SearchBar = (props) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    props.setTerm(`name/${keyword}`);
+    props.onSubmit(keyword);
     setKeyword("");
   };
+  
   return (
     <Form onSubmit={onFormSubmit}>
       <Form.Field>
-        <label>Search country</label>
+        <label htmlFor="searchBar">{props.title}</label>
         <input
+          id="searchBar"
           type="text"
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}

@@ -15,7 +15,7 @@ const Routes = () => {
       </Segment>
 
       <Container>
-        <Router>
+        <Router >
           <Route exact path="/" component={App} />
           <Route path="/:countryId" component={CountryDetailsPage} />
         </Router>
