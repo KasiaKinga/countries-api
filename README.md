@@ -1,4 +1,4 @@
-# Frontend Mentor - REST Countries API with color theme switcher solution
+# Responsive web app to display countries using API
 
 <img src="./countries.gif" />
 
@@ -48,15 +48,12 @@ This is a solution to the [REST Countries API with color theme switcher challeng
   <input
     id="searchBar"
     type="text"
-    value={keyword}
-    onChange={(e) => {
-      setKeyword(e.target.value);
-      props.onChange(e.target.value);
-    }}
+    value={...}
+    onChange={...}
   />
 </Form.Field>
 ```
-- using debounce lodash to delay search after user stop typing (as opposed to hitting enter) 
+- using lodash debounce to delay search after user starts typing (as opposed to triggering at every character) 
 ```
  const delaySearchingForCountry = (term) => {
     const debounce = _.debounce(() => {
@@ -68,18 +65,16 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 ```
 - writting components that are reusable in other context
 - handling errors and loading states
-- ability to refresh the page of a single country
-- - using properly naming of components and variable that are explicit and consistent 
 
 ### Continued development
 - [ ] Click through to the border countries on the detail page
 - [ ] Toggle the color scheme between light and dark mode
 
 ## Author 
-- Linkedin - [Kasia Gierat](https://www.linkedin.com/in/kasia-gierat/)
+- [Kasia Gierat](https://www.linkedin.com/in/kasia-gierat/)
 
 ## Acknowledgments
-Thank you Conor Hawes for helping me out on this project by providing detailed feedback on things which needs improvement. This was a very valuable lesson 🙌
+Thank you [Conor Hawes](https://github.com/chawes13) for helping me out on this project by providing detailed feedback on things which needs improvement. This was a very valuable lesson 🙌
 
 
 
