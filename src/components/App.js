@@ -4,6 +4,8 @@ import CountriesList from "./CountriesList";
 import SearchBar from "./SearchBar";
 import Dropdown from "./Dropdown";
 import { Grid, Container, Header, Loader } from "semantic-ui-react";
+// import { debounce } from 'lodash';
+import _ from "lodash";
 
 const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
@@ -55,7 +57,6 @@ const App = () => {
     });
     setFilteredCountries(filtered);
   }, [filterByRegionTerm, filterByCountryNameTerm]);
- 
 
   const getCountries = async (searchTerm) => {
     try {
@@ -67,14 +68,21 @@ const App = () => {
     }
     setIsLoading(false);
   };
-  
+
+  const debounceSetFilterByCountryNameTerm = (term) => {
+    const debounce = _.debounce(() => {
+      setFilterByCountryNameTerm(term);
+    }, 500);
+
+    debounce();
+  };
 
   return (
     <Container>
       <Grid stackable style={{ marginBottom: "1rem" }}>
         <Grid.Column floated="left" width={5}>
           <SearchBar
-            onChange={setFilterByCountryNameTerm}
+            onChange={debounceSetFilterByCountryNameTerm}
             title={"Search country"}
           />
           {countryNotFound ? (
