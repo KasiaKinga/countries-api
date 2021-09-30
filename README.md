@@ -42,7 +42,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 ### What I learned 
 - enhancing accessibility by using Semantic-UI and associating the label with the input by adding "htmlFor" props and passing in the corresponding input's id
-```
+```jsx
 <Form.Field>
   <label htmlFor="searchBar">{props.title}</label>
   <input
@@ -54,7 +54,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 </Form.Field>
 ```
 - using lodash debounce to delay search after user starts typing (as opposed to triggering at every character) 
-```
+```jsx
  const delaySearchingForCountry = (term) => {
     const debounce = _.debounce(() => {
       setStateWithSearchTerm(term);
