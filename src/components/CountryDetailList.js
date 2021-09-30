@@ -5,11 +5,11 @@ import { formatNumber } from "../utils/util.js";
 const CountryDetailList = (props) => {
   const { country } = props;
 
-  const currency = country.currencies.map((currency) => {
+  const currencies = country.currencies.map((currency) => {
     return currency.name;
   });
 
-  const language = country.languages
+  const languages = country.languages
     .map((language) => {
       return language.name;
     })
@@ -41,10 +41,10 @@ const CountryDetailList = (props) => {
                 <b>Top Level Domain:</b> {country.topLevelDomain}
               </List.Description>
               <List.Description>
-                <b>Currencies:</b> {currency}
+                <b>Currencies:</b> {currencies}
               </List.Description>
               <List.Description>
-                <b>Languages:</b> {language}
+                <b>Languages:</b> {languages}
               </List.Description>
             </Grid.Column>
           </Grid.Row>
