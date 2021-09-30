@@ -5,16 +5,18 @@
 This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
 ## Table of contents
-- [Overview](#overview)
-  - [Users are able to](#users-are-able-to)
-- [Getting Started](#getting-started)
-  - [Executing Program](#executing-program)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+- [Responsive web app to display countries using API](#responsive-web-app-to-display-countries-using-api)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [Users are able to:](#users-are-able-to)
+  - [Getting Started](#getting-started)
+    - [Executing Program](#executing-program)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+    - [Continued development](#continued-development)
+  - [Author](#author)
+  - [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -41,7 +43,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 - [Semenatic UI React](https://react.semantic-ui.com/) - For styles
 
 ### What I learned 
-- enhancing accessibility by using Semantic-UI and associating the label with the input by adding "htmlFor" props and passing in the corresponding input's id
+- enhancing accessibility by associating the label with the input by adding "htmlFor" props and passing in the corresponding input's id
 ```jsx
 <Form.Field>
   <label htmlFor="searchBar">{props.title}</label>
